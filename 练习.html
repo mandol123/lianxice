@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>练习</title>
+    <script src="../代码/js/artTemplate.js"></script>
+</head>
+<body>
+    <div id="concent"></div>
+    <script type="text/html" id="con">
+        {{if readyState==4}}
+            {{if status==200}}
+                <p>成功显示</p>
+                {{@add}}
+                <p>{{add}}</p>
+            {{else}}
+                <p>没找到页面</p>
+            {{/if}}
+        {{else}}
+            加载失败 请查找失败原因
+        {{/if}}
+    </script>
+    <script>
+        let txt = {
+            status : 200,
+            readyState:4,
+            add:"<span>不知道不明了不想要</span>"
+        }
+        let mHtml = template("con",txt);
+        document.getElementById("concent").innerHTML = mHtml
+    </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>循环</title>
+    <script src="../代码/js/artTemplate.js"></script>
+</head>
+<body>
+    <div id="content"></div>
+    <script type="text/html" id="tem">
+        {{each arr val}}
+        <div>
+            <p>势力:{{val.nation}}</p>
+            <p>主公:{{val.pop}}</p>
+            <P>主要人物:
+            {{each val.st  act}}
+            <span>{{act.name}}</span>
+            {{/each}}
+            </P>
+        </div>
+        {{/each}}
+    </script>
+    <script>
+        let date={
+            arr : [
+               { nation : "蜀国" , pop:"刘备", st : [ {name:"关羽"},{name:"张飞"},{name:"赵云"},{name:"黄忠"},{name:"诸葛亮"} ] },
+               { nation : "魏国" , pop:"曹操", st : [ {name:"曹丕"},{name:"曹冲"},{name:"曹植"},{name:"夏侯惇"},{name:"郭嘉"} ] },
+               { nation : "吴国" , pop:"孙权", st : [ {name:"孙策"},{name:"孙坚"},{name:"黄盖"},{name:"孙尚香"},{name:"周瑜"} ] }
+            ]
+        }
+        let myHtml = template("tem",date)
+        document.getElementById("content").innerHTML = myHtml ;
+    </script>
+</body>
+</html>

@@ -1,0 +1,11 @@
+{{each arr}}
+    <div>
+        <p>势力:{{$value.nation}}</p>
+        <p>主公:{{$value.pop}}</p>
+        <P>主要人物:
+        {{each $value.st  act}}
+            <span>{{act.name}}</span>
+        {{/each}}
+        </P>
+    </div>
+{{/each}}
